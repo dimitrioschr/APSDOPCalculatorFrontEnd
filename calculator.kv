@@ -60,7 +60,7 @@
         Button:
             text: 'Close'
             size_hint: [1, 1]
-            on_release: root.CPPopupClose()
+            on_release: root.Close()
 
 <VSLPopup@Popup>:
     title: 'Add Vessel details'
@@ -130,7 +130,7 @@
         Button:
             text: 'Close'
             size_hint: (1, 1)
-            on_release: root.VSLPopupClose()
+            on_release: root.Close()
 
 <ListElement@BoxLayout>:
     size_hint: (1, None)
@@ -147,7 +147,7 @@
     Button:
         text: 'X'
         size_hint: [0.15, 1]
-        on_release: root.ListElementRemove(app)
+        on_release: root.Remove(app)
 
 
 BoxLayout:
@@ -171,7 +171,7 @@ BoxLayout:
         Button:
             id: add
             text: 'Add element'
-            on_press: app.ListElement.ListElementAdd(app.ListElement(), app)
+            on_press: app.ListElement.Add(app.ListElement(), app)
 
     BoxLayout:
         orientation: 'vertical'
@@ -186,12 +186,12 @@ BoxLayout:
         Button:
             id: reset
             text: 'Reset elements'
-            on_press: app.reset()
+            on_press: app.Reset()
 
         Button:
             id: calc
             text: 'Calculate'
-            on_press: app.calculate()
+            on_press: app.Calculate()
 
         Button:
             id: dop

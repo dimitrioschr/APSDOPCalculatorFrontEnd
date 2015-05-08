@@ -16,7 +16,7 @@ class CalculatorApp(App):
         ballast_bonus_input_wid = ObjectProperty(None)
         aps_hire_rate_input_wid = ObjectProperty(None)
 
-        def CPPopupClose(self):
+        def Close(self):
             print(self.ballast_bonus_input_wid.text_input_wid.text,
                   self.aps_hire_rate_input_wid.text_input_wid.text)
             # print to prove access to data
@@ -28,7 +28,7 @@ class CalculatorApp(App):
         speed_input_wid = ObjectProperty(None)
         consumption_input_wid = ObjectProperty(None)
 
-        def VSLPopupClose(self):
+        def Close(self):
             print(self.rob_input_wid.text_input_wid.text,
                   self.price_input_wid.text_input_wid.text,
                   self.speed_input_wid.text_input_wid.text,
@@ -38,7 +38,7 @@ class CalculatorApp(App):
 
     class ListElement(BoxLayout):
 
-        def ListElementAdd(self, app):
+        def Add(self, app):
             if app.line_number < 9:
                 app.root.ids.list.add_widget(self)
                 app.line_number += 1
@@ -46,7 +46,7 @@ class CalculatorApp(App):
                 # do all necessary things when adding
                 # an element to the list
 
-        def ListElementRemove(self, app):
+        def Remove(self, app):
             self.parent.remove_widget(self)
             app.line_number -= 1
             print(app.line_number)
@@ -56,11 +56,15 @@ class CalculatorApp(App):
 
     line_number = 0
 
-    def reset(self):
+    def Reset(self):
         self.root.ids.list.clear_widgets()
+        self.root.ids.dop.text = 'DOP'
         self.line_number = 0
         # do any other things to bring app
         # back to reset state
+
+    def Calculate(self):
+        self.root.ids.dop.text = '123456'
 
 
 if __name__ == '__main__':
