@@ -52,6 +52,7 @@ class ListElement(BoxLayout):
 
     # Remove cannot move into CalculatorApp-class,
     # reference by instance to itself will be lost
+    # !!! or maybe just do: app.Remove(root) !!!
     def Remove(self, app):
         self.parent.remove_widget(self)
         app.line_number -= 1
