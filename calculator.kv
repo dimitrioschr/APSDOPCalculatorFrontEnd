@@ -41,7 +41,7 @@
         Button:
             text: 'Close'
             size_hint: [1, 1]
-            on_release: root.Close()
+            on_release: app.CPPopupClose(root)
 
 <VSLPopup>:
     title: 'Add Vessel details'
@@ -87,7 +87,7 @@
         Button:
             text: 'Close'
             size_hint: (1, 1)
-            on_release: root.Close()
+            on_release: app.VSLPopupClose(root)
 
 <ListElement>:
     size_hint: (1, None)
@@ -103,7 +103,7 @@
     Button:
         text: 'X'
         size_hint: [0.15, 1]
-        on_release: root.Remove(app)
+        on_release: app.ListElementRemove(root)
 
 <AddElementDropDown>:
     Button:
