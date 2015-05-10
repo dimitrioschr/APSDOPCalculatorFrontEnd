@@ -1,10 +1,8 @@
-<StandardTextInput@BoxLayout>:
+<StandardTextInput>:
     orientation: 'vertical'
     text_input_wid: text_input
-
     Label:
         size_hint: [1, 1]
-
     TextInput:
         id: text_input
         size_hint: [1, None]
@@ -12,57 +10,40 @@
         multiline: False
         background_color: [0.1, 0.5, 0.5, 1]
         foreground_color: [1, 1, 1, 1]
-
     Label:
         size_hint: [1, 1]
 
-<CPPopup@Popup>:
+<CPPopup>:
     title: 'Add Charterparty details'
     size_hint: [0.5, 0.5]
     auto_dismiss: False
     ballast_bonus_input_wid: ballast_bonus_input
     aps_hire_rate_input_wid: aps_hire_rate_input
-
     BoxLayout:
         orientation: 'vertical'
-
         BoxLayout:
             orientation: 'vertical'
             size_hint: [1, 5]
-
             BoxLayout:
-
                 Label:
                     text: 'Ballast bonus'
-
                 StandardTextInput:
                     id: ballast_bonus_input
-
                 Label:
                     size_hint: [0.25, 1]
-
             BoxLayout:
-
                 Label:
                     text: 'APS hire rate'
-
                 StandardTextInput:
                     id: aps_hire_rate_input
-
                 Label:
                     size_hint: [0.25, 1]
-
-            BoxLayout:
-
-                Label:
-                    text: '-------------blank line-------------'
-
         Button:
             text: 'Close'
             size_hint: [1, 1]
             on_release: root.Close()
 
-<VSLPopup@Popup>:
+<VSLPopup>:
     title: 'Add Vessel details'
     size_hint: (0.5, 0.5)
     auto_dismiss: False
@@ -70,129 +51,120 @@
     price_input_wid: price_input
     speed_input_wid: speed_input
     consumption_input_wid: consumption_input
-
     BoxLayout:
         orientation: 'vertical'
-
         BoxLayout:
             orientation: 'vertical'
             size_hint: (1, 5)
-
             BoxLayout:
-
                 Label:
                     text: 'ROB'
-
                 StandardTextInput:
                     id: rob_input
-
                 Label:
                     size_hint: [0.25, 1]
-
             BoxLayout:
-
                 Label:
                     text: 'Price'
-
                 StandardTextInput:
                     id: price_input
-
                 Label:
                     size_hint: [0.25, 1]
-
             BoxLayout:
-
                 Label:
                     text: 'Speed'
-
                 StandardTextInput:
                     id: speed_input
-
                 Label:
                     size_hint: [0.25, 1]
-
             BoxLayout:
-
                 Label:
                     text: 'Consumption'
-
                 StandardTextInput:
                     id: consumption_input
-
                 Label:
                     size_hint: [0.25, 1]
-
-            BoxLayout:
-
-                Label:
-                    text: '-------------blank line-------------'
-
         Button:
             text: 'Close'
             size_hint: (1, 1)
             on_release: root.Close()
 
-<ListElement@BoxLayout>:
+<ListElement>:
     size_hint: (1, None)
     height: 50
-
+    description_wid: description
     Button:
         text: 'img'
         size_hint: [0.15, 1]
-
     Button:
+        id: description
         text: 'item'
         size_hint: [0.7, 1]
-
     Button:
         text: 'X'
         size_hint: [0.15, 1]
         on_release: root.Remove(app)
 
+<AddElementDropDown>:
+    Button:
+        text: 'Sea passage'
+        size_hint_y: None
+        height: 50
+        on_release: root.select('Sea passage'); app.ListElementAdd(app.element_type_selected)
+    Button:
+        text: 'Ballast bonus'
+        size_hint_y: None
+        height: 50
+        on_release: root.select('Ballast bonus'); app.ListElementAdd(app.element_type_selected)
+    Button:
+        text: 'Bunkering'
+        size_hint_y: None
+        height: 50
+        on_release: root.select('Bunkering'); app.ListElementAdd(app.element_type_selected)
+    Button:
+        text: 'Port'
+        size_hint_y: None
+        height: 50
+        on_release: root.select('Port'); app.ListElementAdd(app.element_type_selected)
+
+
+#################################################################
 
 BoxLayout:
     orientation: 'vertical'
-
     BoxLayout:
         orientation: 'horizontal'
         id: top
         size_hint: (1, 1)
-
         Button:
             id: cp
             text: 'CP details'
-            on_press: app.CPPopup().open()
-
+            on_press: app.CPPopupOpen()
         Button:
             id: vsl
             text: 'Vessel details'
-            on_press: app.VSLPopup().open()
-
+            on_press: app.VSLPopupOpen()
         Button:
             id: add
             text: 'Add element'
-            on_press: app.ListElement.Add(app.ListElement(), app)
-
+            on_release: app.AddElementDropDownOpen(self)
     BoxLayout:
         orientation: 'vertical'
         id: list
         size_hint: (1, 8)
-
+        Widget:
     BoxLayout:
         orientation: 'horizontal'
         id: bottom
         size_hint: (1, 1)
-
         Button:
             id: reset
             text: 'Reset elements'
             on_press: app.Reset()
-
         Button:
             id: calc
             text: 'Calculate'
             on_press: app.Calculate()
-
         Button:
             id: dop
             text: 'DOP rate'
