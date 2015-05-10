@@ -40,6 +40,7 @@ class VSLPopup(Popup):
 class ListElement(BoxLayout):
     description_wid = ObjectProperty(None)
 
+    # Add could move into CalculatorApp-class
     def Add(self, app, element_type_selected):
         if app.line_number < 9:
             self.description_wid.text = element_type_selected
@@ -49,6 +50,8 @@ class ListElement(BoxLayout):
             app.root.ids.list.add_widget(Widget())
             app.line_number += 1
 
+    # Remove cannot move into CalculatorApp-class,
+    # reference by instance to itself will be lost
     def Remove(self, app):
         self.parent.remove_widget(self)
         app.line_number -= 1
