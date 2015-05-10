@@ -20,7 +20,6 @@ class CPPopup(Popup):
     def Close(self):
         print(self.ballast_bonus_input_wid.text_input_wid.text,
               self.aps_hire_rate_input_wid.text_input_wid.text)
-        # print to prove access to data
         self.dismiss()
 
 
@@ -35,7 +34,6 @@ class VSLPopup(Popup):
               self.price_input_wid.text_input_wid.text,
               self.speed_input_wid.text_input_wid.text,
               self.consumption_input_wid.text_input_wid.text)
-        # print to prove access to data
         self.dismiss()
 
 
@@ -50,20 +48,15 @@ class ListElement(BoxLayout):
             app.root.ids.list.add_widget(self)
             app.root.ids.list.add_widget(Widget())
             app.line_number += 1
-            print(app.line_number)
-            # do all necessary things when adding
-            # an element to the list
 
     def Remove(self, app):
         self.parent.remove_widget(self)
         app.line_number -= 1
-        print(app.line_number)
-        # also do any more stuff needed
-        # when elements are removed from list
 
 
 class AddElementDropDown(DropDown):
     pass
+
 
 class Calculator2App(App):
 
@@ -93,8 +86,6 @@ class Calculator2App(App):
         self.root.ids.list.clear_widgets()
         self.root.ids.dop.text = 'DOP'
         self.line_number = 0
-        # do any other things to bring app
-        # back to reset state
 
     def Calculate(self):
         self.root.ids.dop.text = '123456'
