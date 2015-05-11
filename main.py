@@ -68,6 +68,9 @@ class CalculatorApp(App):
 
     def ListElementAdd(self, element_type_selected):
         if self.line_number < 9:
+        # idea: make the pad-Widget a named class object and get
+        # its property-height before adding an additional element,
+        # then add only if available height exceeds the element height = 40
             list_widget = self.root.ids.list
             ElementToAdd = ListElement()
             ElementToAdd.description_wid.text = element_type_selected
