@@ -11,32 +11,26 @@ from kivy.uix.widget import Widget
 
 class StandardTextInput(BoxLayout):
     text_input_wid = ObjectProperty(None)
-
-
 class CPPopup(Popup):
     ballast_bonus_input_wid = ObjectProperty(None)
     aps_hire_rate_input_wid = ObjectProperty(None)
-
-
 class VSLPopup(Popup):
     rob_input_wid = ObjectProperty(None)
     price_input_wid = ObjectProperty(None)
     speed_input_wid = ObjectProperty(None)
     consumption_input_wid = ObjectProperty(None)
-
-
 class ListElement(BoxLayout):
     description_wid = ObjectProperty(None)
-
-
 class AddElementDropDown(DropDown):
     pass
+class MainCalculatorLayout(BoxLayout):
+    list_wid = ObjectProperty(None)
+    dop_wid = ObjectProperty(None)
 
 
 class CalculatorApp(App):
 
     line_number = 0
-    instance = 0
     element_type_selected = 0
 
     def CPPopupOpen(self):
@@ -71,12 +65,11 @@ class CalculatorApp(App):
         # idea: make the pad-Widget a named class object and get
         # its property-height before adding an additional element,
         # then add only if available height exceeds the element height = 40
-            list_widget = self.root.ids.list
             ElementToAdd = ListElement()
             ElementToAdd.description_wid.text = element_type_selected
-            list_widget.remove_widget(list_widget.children[0])
-            list_widget.add_widget(ElementToAdd)
-            list_widget.add_widget(Widget())
+            self.root.list_wid.remove_widget(self.root.list_wid.children[0])
+            self.root.list_wid.add_widget(ElementToAdd)
+            self.root.list_wid.add_widget(Widget())
             self.line_number += 1
 
     def ListElementRemove(self, ElementToRemove):
@@ -84,13 +77,13 @@ class CalculatorApp(App):
         self.line_number -= 1
 
     def Reset(self):
-        self.root.ids.list.clear_widgets()
-        self.root.ids.list.add_widget(Widget())
-        self.root.ids.dop.text = 'DOP'
+        self.root.list_wid.clear_widgets()
+        self.root.list_wid.add_widget(Widget())
+        self.root.dop_wid.text = 'DOP'
         self.line_number = 0
 
     def Calculate(self):
-        self.root.ids.dop.text = '123456'
+        self.root.dop_wid.text = '123456'
 
 
 if __name__ == '__main__':
