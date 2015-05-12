@@ -134,7 +134,7 @@
     BoxLayout:
         orientation: 'horizontal'
         id: top
-        size_hint: (1, 1)
+        size_hint: [1, 1]
         Button:
             id: cp
             text: 'CP details'
@@ -147,15 +147,17 @@
             id: add
             text: 'Add element'
             on_release: app.AddElementDropDownOpen(self)
-    BoxLayout:
-        orientation: 'vertical'
-        id: list
-        size_hint: (1, 8)
-        Widget:
+    ScrollView:
+        size_hint: [1, 8]
+        BoxLayout:
+            orientation: 'vertical'
+            id: list
+            size_hint: [1, 1.25]
+            Widget:
     BoxLayout:
         orientation: 'horizontal'
         id: bottom
-        size_hint: (1, 1)
+        size_hint: [1, 1]
         Button:
             id: reset
             text: 'Reset elements'
