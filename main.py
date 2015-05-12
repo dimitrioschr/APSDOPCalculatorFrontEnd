@@ -61,6 +61,7 @@ class CalculatorApp(App):
         )
 
     def ListElementAdd(self, element_type_selected):
+        print(self.root.list_wid.children[0].size)
         if self.line_number < 9:
         # idea: make the pad-Widget a named class object and get
         # its property-height before adding an additional element,
@@ -71,6 +72,7 @@ class CalculatorApp(App):
             self.root.list_wid.add_widget(ElementToAdd)
             self.root.list_wid.add_widget(Widget())
             self.line_number += 1
+            print(self.root.list_wid.children[0].size)
 
     def ListElementRemove(self, ElementToRemove):
         ElementToRemove.parent.remove_widget(ElementToRemove)
