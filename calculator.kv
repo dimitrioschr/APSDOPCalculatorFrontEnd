@@ -91,7 +91,7 @@
 
 <ListElement>:
     size_hint: [1, None]
-    height: 50
+    height: app.element_height
     description_wid: description
     Button:
         text: 'img'
@@ -152,8 +152,11 @@
         BoxLayout:
             orientation: 'vertical'
             id: list
-            size_hint: [1, 1.25]
+            size_hint_y: None
+            height: sum(child.height for child in self.children)
             Widget:
+                size_hint_y: None
+                height: app.element_height
     BoxLayout:
         orientation: 'horizontal'
         id: bottom

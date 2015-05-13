@@ -30,6 +30,7 @@ class MainCalculatorLayout(BoxLayout):
 
 class CalculatorApp(App):
 
+    element_height = 50
     element_type_selected = 0
 
     def CPPopupOpen(self):
@@ -60,20 +61,28 @@ class CalculatorApp(App):
         )
 
     def ListElementAdd(self, element_type_selected):
-        if self.root.list_wid.children[0].size[1] >= 50:
+        print('scrollview.height', self.root.list_wid.parent.height)
+        print('list height', self.root.list_wid.height)
+        try:
+            print('list element height', self.root.list_wid.children[1].height)
+        except:
+            pass
+        print('pad widget height', self.root.list_wid.children[0].height)
+        print('@'*55)
+        if self.root.list_wid.children[0].height >= self.element_height:
+            # above test is probably superfluous
             ElementToAdd = ListElement()
             ElementToAdd.description_wid.text = element_type_selected
             self.root.list_wid.remove_widget(self.root.list_wid.children[0])
             self.root.list_wid.add_widget(ElementToAdd)
-            self.root.list_wid.add_widget(Widget())
+            self.root.list_wid.add_widget(Widget(size_hint_y = None, height = self.element_height))
 
     def ListElementRemove(self, ElementToRemove):
         ElementToRemove.parent.remove_widget(ElementToRemove)
 
-
     def Reset(self):
         self.root.list_wid.clear_widgets()
-        self.root.list_wid.add_widget(Widget())
+        self.root.list_wid.add_widget(Widget(size_hint_y = None, height = self.element_height))
         self.root.dop_wid.text = 'DOP'
 
     def Calculate(self):
