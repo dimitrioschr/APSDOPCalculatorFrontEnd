@@ -139,10 +139,22 @@
             id: cp
             text: 'CP details'
             on_release: app.CPPopupOpen()
+            Image:
+                source: 'contract_1.png'
+                y: self.parent.y
+                x: self.parent.x + self.parent.height / 7
+                size: [self.parent.height, self.parent.height]
+                allow_stretch: True
         Button:
             id: vsl
             text: 'Vessel details'
             on_release: app.VSLPopupOpen()
+            Image:
+                source: 'ship_1.png'
+                y: self.parent.y
+                x: self.parent.x + self.parent.height / 7
+                size: [self.parent.height, self.parent.height]
+                allow_stretch: True
         Button:
             id: add
             text: 'Add element'
