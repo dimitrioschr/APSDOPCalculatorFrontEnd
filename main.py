@@ -30,7 +30,6 @@ class MainCalculatorLayout(BoxLayout):
 
 class CalculatorApp(App):
 
-    line_number = 0
     element_type_selected = 0
 
     def CPPopupOpen(self):
@@ -67,17 +66,15 @@ class CalculatorApp(App):
             self.root.list_wid.remove_widget(self.root.list_wid.children[0])
             self.root.list_wid.add_widget(ElementToAdd)
             self.root.list_wid.add_widget(Widget())
-            self.line_number += 1
 
     def ListElementRemove(self, ElementToRemove):
         ElementToRemove.parent.remove_widget(ElementToRemove)
-        self.line_number -= 1
+
 
     def Reset(self):
         self.root.list_wid.clear_widgets()
         self.root.list_wid.add_widget(Widget())
         self.root.dop_wid.text = 'DOP'
-        self.line_number = 0
 
     def Calculate(self):
         self.root.dop_wid.text = '123456'

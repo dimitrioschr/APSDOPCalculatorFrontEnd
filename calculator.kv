@@ -45,7 +45,7 @@
 
 <VSLPopup>:
     title: 'Add Vessel details'
-    size_hint: (0.5, 0.5)
+    size_hint: [0.5, 0.5]
     auto_dismiss: False
     rob_input_wid: rob_input
     price_input_wid: price_input
@@ -55,7 +55,7 @@
         orientation: 'vertical'
         BoxLayout:
             orientation: 'vertical'
-            size_hint: (1, 5)
+            size_hint: [1, 5]
             BoxLayout:
                 Label:
                     text: 'ROB'
@@ -86,11 +86,11 @@
                     size_hint: [0.25, 1]
         Button:
             text: 'Close'
-            size_hint: (1, 1)
+            size_hint: [1, 1]
             on_release: app.VSLPopupClose(root)
 
 <ListElement>:
-    size_hint: (1, None)
+    size_hint: [1, None]
     height: 50
     description_wid: description
     Button:
