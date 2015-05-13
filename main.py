@@ -61,14 +61,14 @@ class CalculatorApp(App):
         )
 
     def ListElementAdd(self, element_type_selected):
-        print('scrollview.height', self.root.list_wid.parent.height)
-        print('list height', self.root.list_wid.height)
-        try:
-            print('list element height', self.root.list_wid.children[1].height)
-        except:
-            pass
-        print('pad widget height', self.root.list_wid.children[0].height)
-        print('@'*55)
+        # print('scrollview.height', self.root.list_wid.parent.height)
+        # print('list height', self.root.list_wid.height)
+        # try:
+        #     print('list element height', self.root.list_wid.children[1].height)
+        # except:
+        #     pass
+        # print('pad widget height', self.root.list_wid.children[0].height)
+        # print('@'*55)
         if self.root.list_wid.children[0].height >= self.element_height:
             # above test is probably superfluous
             ElementToAdd = ListElement()
