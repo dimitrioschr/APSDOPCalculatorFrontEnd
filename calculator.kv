@@ -138,11 +138,11 @@
         Button:
             id: cp
             text: 'CP details'
-            on_press: app.CPPopupOpen()
+            on_release: app.CPPopupOpen()
         Button:
             id: vsl
             text: 'Vessel details'
-            on_press: app.VSLPopupOpen()
+            on_release: app.VSLPopupOpen()
         Button:
             id: add
             text: 'Add element'
@@ -164,11 +164,11 @@
         Button:
             id: reset
             text: 'Reset elements'
-            on_press: app.Reset()
+            on_release: app.Reset()
         Button:
             id: calc
             text: 'Calculate'
-            on_press: app.Calculate()
+            on_release: app.Calculate()
         Button:
             id: dop
             text: 'DOP rate'
