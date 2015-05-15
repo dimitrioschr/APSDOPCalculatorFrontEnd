@@ -30,6 +30,22 @@ class MainCalculatorLayout(BoxLayout):
 
 class CalculatorApp(App):
 
+    def on_start(self):
+        pu = Popup(title = 'WOW!!!',
+                   size_hint = [0.5, 0.5],
+                   auto_dismiss = True)
+        bx = BoxLayout(orientation = 'vertical')
+        lb = Label(text = 'Welcome to APS/DOP calculator',
+                   size_hint = [1, 3])
+        bt = Button(text = 'OK',
+                    size_hint = [1, 1],
+                    on_release = pu.dismiss)
+        pu.add_widget(bx)
+
+        bx.add_widget(lb)
+        bx.add_widget(bt)
+        pu.open()
+
     element_height = 50
     element_type_selected = 0
 
