@@ -110,26 +110,50 @@
         text: 'Sea passage'
         size_hint_y: None
         height: app.element_height
-        background_color: [0.1, 0.4, 0.9, 1]
+        background_color: [0.3, 0.9, 0.9, 1]
         on_release: root.select('Sea passage'); app.ListElementAdd(app.element_type_selected)
+        Image:
+            source: 'sea_passage_2.png'
+            y: self.parent.y
+            x: self.parent.x + self.parent.height / 7
+            size: [self.parent.height, self.parent.height]
+            allow_stretch: True
     Button:
         text: 'Ballast bonus'
         size_hint_y: None
         height: app.element_height
         background_color: [0.3, 0.9, 0.3, 1]
         on_release: root.select('Ballast bonus'); app.ListElementAdd(app.element_type_selected)
+        Image:
+            source: 'money.png'
+            y: self.parent.y
+            x: self.parent.x + self.parent.height / 7
+            size: [self.parent.height, self.parent.height]
+            allow_stretch: True
     Button:
         text: 'Bunkering'
         size_hint_y: None
         height: app.element_height
         background_color: [0.7, 0.6, 0.9, 1]
         on_release: root.select('Bunkering'); app.ListElementAdd(app.element_type_selected)
+        Image:
+            source: 'bunkering.png'
+            y: self.parent.y
+            x: self.parent.x + self.parent.height / 7
+            size: [self.parent.height, self.parent.height]
+            allow_stretch: True
     Button:
         text: 'Port'
         size_hint_y: None
         height: app.element_height
         background_color: [0.9, 0.4, 0.6, 1]
         on_release: root.select('Port'); app.ListElementAdd(app.element_type_selected)
+        Image:
+            source: 'port.png'
+            y: self.parent.y
+            x: self.parent.x + self.parent.height / 7
+            size: [self.parent.height, self.parent.height]
+            allow_stretch: True
 
 <MainCalculatorLayout>:
     orientation: 'vertical'
@@ -164,6 +188,12 @@
             id: add
             text: 'Add element'
             on_release: app.AddElementDropDownOpen(self)
+            Image:
+                source: 'add182.png'
+                y: self.parent.y
+                x: self.parent.x + self.parent.height / 7
+                size: [self.parent.height, self.parent.height]
+                allow_stretch: True
     ScrollView:
         size_hint: [1, 8]
         BoxLayout:
@@ -182,10 +212,22 @@
             id: reset
             text: 'Reset elements'
             on_release: app.Reset()
+            Image:
+                source: 'update17.png'
+                y: self.parent.y
+                x: self.parent.x + self.parent.height / 7
+                size: [self.parent.height, self.parent.height]
+                allow_stretch: True
         Button:
             id: calc
             text: 'Calculate'
             on_release: app.Calculate()
+            Image:
+                source: 'calc1.png'
+                y: self.parent.y
+                x: self.parent.x + self.parent.height / 7
+                size: [self.parent.height, self.parent.height]
+                allow_stretch: True
         Button:
             id: dop
             text: 'DOP rate'
